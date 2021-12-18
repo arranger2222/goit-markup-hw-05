@@ -138,7 +138,9 @@ header {
 
 .navigation a,
 .header-contacts a {
+  position: relative;
   padding: 32px 0;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .navigation a:hover,
@@ -162,6 +164,17 @@ header .header-contacts a {
   line-height: 1.14em;
 }
 
+.active::after {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 4px;
+  bottom: -1px;
+  background-color: var(--secondary-color);
+  border-radius: 2px;
+}
+
 .envelope {
   width: 16px;
   height: 12px;
@@ -176,6 +189,7 @@ header .header-contacts a {
 .smartphone {
   fill: var(--secondary-text-color);
   margin-right: 10px;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .header-contacts a:hover svg,
@@ -240,6 +254,7 @@ header .header-contacts a {
   min-width: 200px;
   min-height: 50px;
   border-radius: 4px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hero button:hover,
@@ -285,17 +300,37 @@ header .header-contacts a {
   padding-top: 0px;
 }
 
+.overlay-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  height: 70px;
+  left: 0%;
+  bottom: 0px;
+  background-color: rgba(47, 48, 58, 0.8);
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 700px;
+  line-height: 1.17;
+}
+
 .actions-list {
   display: flex;
   justify-content: space-between;
 }
 
+.actions-item {
+  position: relative;
+}
 /*===============  НАША КОМАНДА  ================ */
 .social-list {
   margin-top: 16px;
 }
 
-.social-item,
+.s .social-item,
 .social-item a {
   display: flex;
   justify-content: center;
@@ -304,6 +339,7 @@ header .header-contacts a {
 
 .social-link svg {
   fill: currentColor;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-link:hover,
@@ -326,6 +362,7 @@ header .header-contacts a {
   width: 44px;
   height: 44px;
   border-radius: 50%;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .team {
@@ -384,13 +421,11 @@ header .header-contacts a {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.customers-link {
   width: 170px;
   height: 92px;
   border: 1px solid #afb1b8;
   border-radius: 4px;
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .customers-list {
@@ -410,6 +445,7 @@ header .header-contacts a {
 
 .company-logo {
   fill: currentColor;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /*================= ПОРТФОЛИО  ================= */
@@ -433,6 +469,9 @@ header .header-contacts a {
   background-color: #f5f4fa;
   padding: 6px 22px;
   border-radius: 4px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .filter {
@@ -458,17 +497,35 @@ header .header-contacts a {
 }
 
 /* ============  ПРИМЕРЫ РАБОТ  ============ */
+.thumb-box {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+.overlay-box {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  padding: 63px 24px;
+  background-color: rgba(33, 150, 243, 0.9);
+  transform: translateY(100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
 
 .example-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
-.example-list li {
+.example-item {
   width: 370px;
+  min-height: 404px;
   margin-right: 30px;
   border: solid 1px #eeeeee;
   margin-bottom: 30px;
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .example-item:nth-last-child(-n + 3) {
@@ -495,7 +552,14 @@ header .header-contacts a {
   color: var(--secondary-text-color);
   font-size: 16px;
   letter-spacing: 0.03em;
-  line-height: 1.87;
+  line-height: 1.85;
+}
+
+.overlay-box p {
+  color: #fff;
+  font-size: 18px;
+  line-height: 1.6;
+  letter-spacing: 0.03em;
 }
 
 .example-description {
@@ -509,6 +573,10 @@ header .header-contacts a {
 .example-item:hover {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
+}
+
+.example-item:hover .overlay-box {
+  transform: translateY(0);
 }
 
 /* ==============  ФУТЕР  ============ */
@@ -540,6 +608,7 @@ footer a {
   font-size: 14px;
   letter-spacing: 0.03em;
   line-height: 1.7em;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 address {
@@ -572,6 +641,7 @@ address {
   width: 44px;
   height: 44px;
   border-radius: 50%;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-social-item:not(:last-child) {
