@@ -510,7 +510,7 @@ header .header-contacts a {
   height: 100%;
   padding: 63px 24px;
   background-color: rgba(33, 150, 243, 0.9);
-  transform: translateY(100%);
+  transform: translateY(101%);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -575,7 +575,11 @@ header .header-contacts a {
     1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
-.example-item:hover .overlay-box {
+.example-link:hover .overlay-box {
+  transform: translateY(0);
+}
+
+.example-link:focus .overlay-box {
   transform: translateY(0);
 }
 
