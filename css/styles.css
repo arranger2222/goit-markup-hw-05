@@ -621,6 +621,13 @@ header .header-contacts a {
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
+.icon-close {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 /* ==============  ФУТЕР  ============ */
 footer {
   background-color: #2f303a;
